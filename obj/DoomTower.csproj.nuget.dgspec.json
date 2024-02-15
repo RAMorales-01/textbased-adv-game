@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "c:\\Users\\Talisman\\Desktop\\TextBasedGame\\DoomTower\\DoomTower.csproj": {}
+    "C:\\Users\\Talisman\\Desktop\\TextBasedGame\\DoomTower\\DoomTower.csproj": {}
   },
   "projects": {
-    "c:\\Users\\Talisman\\Desktop\\TextBasedGame\\DoomTower\\DoomTower.csproj": {
+    "C:\\Users\\Talisman\\Desktop\\TextBasedGame\\DoomTower\\DoomTower.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\Users\\Talisman\\Desktop\\TextBasedGame\\DoomTower\\DoomTower.csproj",
+        "projectUniqueName": "C:\\Users\\Talisman\\Desktop\\TextBasedGame\\DoomTower\\DoomTower.csproj",
         "projectName": "DoomTower",
-        "projectPath": "c:\\Users\\Talisman\\Desktop\\TextBasedGame\\DoomTower\\DoomTower.csproj",
+        "projectPath": "C:\\Users\\Talisman\\Desktop\\TextBasedGame\\DoomTower\\DoomTower.csproj",
         "packagesPath": "C:\\Users\\Talisman\\.nuget\\packages\\",
-        "outputPath": "c:\\Users\\Talisman\\Desktop\\TextBasedGame\\DoomTower\\obj\\",
+        "outputPath": "C:\\Users\\Talisman\\Desktop\\TextBasedGame\\DoomTower\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Talisman\\AppData\\Roaming\\NuGet\\NuGet.Config",
