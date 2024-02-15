@@ -1,0 +1,15 @@
+C:\Users\Talisman\Desktop\TextBasedGame\DoomTower\bin\Debug\net7.0\DoomTower.exe
+C:\Users\Talisman\Desktop\TextBasedGame\DoomTower\bin\Debug\net7.0\DoomTower.deps.json
+C:\Users\Talisman\Desktop\TextBasedGame\DoomTower\bin\Debug\net7.0\DoomTower.runtimeconfig.json
+C:\Users\Talisman\Desktop\TextBasedGame\DoomTower\bin\Debug\net7.0\DoomTower.dll
+C:\Users\Talisman\Desktop\TextBasedGame\DoomTower\bin\Debug\net7.0\DoomTower.pdb
+C:\Users\Talisman\Desktop\TextBasedGame\DoomTower\obj\Debug\net7.0\DoomTower.csproj.AssemblyReference.cache
+C:\Users\Talisman\Desktop\TextBasedGame\DoomTower\obj\Debug\net7.0\DoomTower.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Talisman\Desktop\TextBasedGame\DoomTower\obj\Debug\net7.0\DoomTower.AssemblyInfoInputs.cache
+C:\Users\Talisman\Desktop\TextBasedGame\DoomTower\obj\Debug\net7.0\DoomTower.AssemblyInfo.cs
+C:\Users\Talisman\Desktop\TextBasedGame\DoomTower\obj\Debug\net7.0\DoomTower.csproj.CoreCompileInputs.cache
+C:\Users\Talisman\Desktop\TextBasedGame\DoomTower\obj\Debug\net7.0\DoomTower.dll
+C:\Users\Talisman\Desktop\TextBasedGame\DoomTower\obj\Debug\net7.0\refint\DoomTower.dll
+C:\Users\Talisman\Desktop\TextBasedGame\DoomTower\obj\Debug\net7.0\DoomTower.pdb
+C:\Users\Talisman\Desktop\TextBasedGame\DoomTower\obj\Debug\net7.0\DoomTower.genruntimeconfig.cache
+C:\Users\Talisman\Desktop\TextBasedGame\DoomTower\obj\Debug\net7.0\ref\DoomTower.dll

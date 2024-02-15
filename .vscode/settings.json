@@ -1,0 +1,4 @@
+{
+    "dotnet.defaultSolution": "DoomTower",
+    "csharp.debug.console": "externalTerminal"
+}
