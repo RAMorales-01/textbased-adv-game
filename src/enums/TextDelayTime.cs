@@ -1,4 +1,4 @@
-namespace TextDelay
+namespace TextTimeDelay
 {
     public enum Delay
     {

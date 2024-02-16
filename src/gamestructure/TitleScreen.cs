@@ -1,6 +1,6 @@
 using System;
 using System.Threading;
-using TextDelay;
+using TextTimeDelay;
 
 namespace GameStructure
 {
