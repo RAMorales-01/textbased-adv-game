@@ -1,5 +1,3 @@
-using System;
-using System.Threading;
 using Ranks;
 
 namespace GameEquipment
