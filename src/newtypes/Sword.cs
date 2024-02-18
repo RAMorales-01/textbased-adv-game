@@ -11,7 +11,7 @@ namespace GameEquipment
         public int Weight { get; protected set; }
         public int Price { get; protected set; }
 
-        // Next property is exclusive to a Sword class equipment only.
+        // Next property is exclusive for Sword class equipment only.
         public int SwordDmg { get; protected set; }
 
         /// <summary>

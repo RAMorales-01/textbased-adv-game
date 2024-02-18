@@ -11,9 +11,13 @@ namespace GameEquipment
         public int Weight { get; protected set; }
         public int Price { get; protected set; }
 
-        // Next property is exclusive to a Shield class equipment only.
+        // Next property is exclusive for Shield class equipment only.
         public int ShieldDef { get; protected set; }
 
+        /// <summary>
+        /// Constructor for class Shield, instance is determined by the parameter of enum type Rank.
+        /// </summary>
+        /// <param name="rank"></param>
         public Shield(Rank rank)
         {
             switch(rank)
@@ -24,7 +28,7 @@ namespace GameEquipment
                     this.Name = "Bended Shield";
                     this.Info = "An used shield that has seen better days, you might still be able to use it to block..just don't use it to much.";
                     this.Weight = 4;
-                    this.Price = 10;
+                    this.Price = 20;
                     this.ShieldDef = 1;
                     break;
                 
@@ -42,7 +46,7 @@ namespace GameEquipment
                     this.ID = "SHIELD-RB";
                     this.EquipmentRank = Rank.B;
                     this.Name = "Steel Shield";
-                    this.Info = "An used shield that has seen better days, you might still be able to use it to block..just don't use it to much.";
+                    this.Info = "";
                     this.Weight = 8;
                     this.Price = 1600;
                     this.ShieldDef = 8;
@@ -52,7 +56,7 @@ namespace GameEquipment
                     this.ID = "SHIELD-RA";
                     this.EquipmentRank = Rank.A;
                     this.Name = "Drake-Scale Shield";
-                    this.Info = "Strong and light-weight made from a dragon scale, the scales of drgaon can resist any type of arrow or magic.";
+                    this.Info = "Strong and lightweight made from a dragon scale, the scales of drgaon can resist any type of arrow or magic.";
                     this.Weight = 4;
                     this.Price = 4600;
                     this.ShieldDef = 10;
