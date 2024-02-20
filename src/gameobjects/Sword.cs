@@ -22,14 +22,24 @@ namespace GameEquipment
         {
             switch(rank)
             {
-                case Rank.D:
-                    this.ID = "SWORD-RD";
-                    this.EquipmentRank = Rank.D;
+                case Rank.Default:
+                    this.ID = "SWORD-DEFAULT";
+                    this.EquipmentRank = Rank.Default;
                     this.Name = "Wooden Sword";
                     this.Info = "A sword used solely for training, might do some damage if the one wielding it hits very hard.";
                     this.Weight = 2;
                     this.Price = 10;
                     this.SwordDmg = 1;
+                    break;
+                
+                case Rank.D:
+                    this.ID = "SWORD-RD";
+                    this.EquipmentRank = Rank.D;
+                    this.Name = "Old-Jagged Sword";
+                    this.Info = "A sword that has seen better days thats for sure, but for now its better than nothing.";
+                    this.Weight = 8;
+                    this.Price = 100;
+                    this.SwordDmg = 2;
                     break;
 
                 case Rank.C:
@@ -38,7 +48,7 @@ namespace GameEquipment
                     this.Name = "Iron Sword";
                     this.Info = "A very common sword used across the kingdom, mostly used by city guards and common bandits.";
                     this.Weight = 8;
-                    this.Price = 100;
+                    this.Price = 300;
                     this.SwordDmg = 4;
                     break;
                 

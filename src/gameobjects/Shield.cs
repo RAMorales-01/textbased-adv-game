@@ -22,14 +22,24 @@ namespace GameEquipment
         {
             switch(rank)
             {
+                case Rank.Default:
+                    this.ID = "SHIELD-DEFALUT";
+                    this.EquipmentRank = Rank.Default;
+                    this.Name = "Wooden Shield";
+                    this.Info = "A shield made of common wood, might give you some defense but it also can catch fire quite easily.";
+                    this.Weight = 2;
+                    this.Price = 20;
+                    this.ShieldDef = 1;
+                    break;
+                
                 case Rank.D:
                     this.ID = "SHIELD-RD";
                     this.EquipmentRank = Rank.D;
                     this.Name = "Bended Shield";
-                    this.Info = "An used shield that has seen better days, you might still be able to use it to block..just don't use it to much.";
+                    this.Info = "An very used shield that has seen better days, you might still be able to use it to block..just don't use it to much.";
                     this.Weight = 4;
-                    this.Price = 20;
-                    this.ShieldDef = 1;
+                    this.Price = 160;
+                    this.ShieldDef = 2;
                     break;
                 
                 case Rank.C:
@@ -46,7 +56,7 @@ namespace GameEquipment
                     this.ID = "SHIELD-RB";
                     this.EquipmentRank = Rank.B;
                     this.Name = "Steel Shield";
-                    this.Info = "";
+                    this.Info = "Made of steel of highest quality, mostly preferred by veteran warriors and high ranking knights.";
                     this.Weight = 8;
                     this.Price = 1600;
                     this.ShieldDef = 8;

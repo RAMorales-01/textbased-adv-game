@@ -22,14 +22,24 @@ namespace GameEquipment
         {
             switch(rank)
             {
+                case Rank.Default:
+                    this.ID = "ARMOR-DEFAULT";
+                    this.EquipmentRank = Rank.Default;
+                    this.Name = "Old Cloth";
+                    this.Info = "Just a old and stinky cloth...you might want to change it as soon as posible.";
+                    this.Weight = 4;
+                    this.Price = 10;
+                    this.ArmorDef = 1;
+                    break;
+
                 case Rank.D:
                     this.ID = "ARMOR-RD";
                     this.EquipmentRank = Rank.D;
                     this.Name = "Rusted Armor";
                     this.Info = "An old armor in very bad shape, it seems its previous owner didn't gave any type of maintenance.";
-                    this.Weight = 10;
-                    this.Price = 20;
-                    this.ArmorDef = 2;
+                    this.Weight = 6;
+                    this.Price = 200;
+                    this.ArmorDef = 4;
                     break;
                 
                 case Rank.C:
@@ -56,7 +66,7 @@ namespace GameEquipment
                     this.ID = "ARMOR-RA";
                     this.EquipmentRank = Rank.A;
                     this.Name = "Dragonbone Armor";
-                    this.Info = "";
+                    this.Info = "Made of the bones of a high dragon and because of this, the armor can resist high temperatures without loosing its shine and luster.";
                     this.Weight = 22;
                     this.Price = 6460;
                     this.ArmorDef = 22;
@@ -66,7 +76,7 @@ namespace GameEquipment
                     this.ID = "ARMOR-RS";
                     this.EquipmentRank = Rank.S;
                     this.Name = "Stardust Armor";
-                    this.Info = "";
+                    this.Info = "Armor forged with the remains of dying star, said to be the armor used by the knight at the service of the gods.";
                     this.Weight = 30;
                     this.Price = 8800;
                     this.ArmorDef = 25;
@@ -75,8 +85,8 @@ namespace GameEquipment
                 case Rank.Legendary:
                     this.ID = "ARMOR-LEGEND";
                     this.EquipmentRank = Rank.Legendary;
-                    this.Name = "Death Conqueror Armor";
-                    this.Info = "";
+                    this.Name = "Death Conquering Armor";
+                    this.Info = "Armor said to contain the soul of the phoenix, this armor can defy death itself.";
                     this.Weight = 20;
                     this.Price = 44400;
                     this.ArmorDef = 35;
