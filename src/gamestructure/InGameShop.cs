@@ -2,6 +2,7 @@ using System;
 using System.Threading;
 using GameCharacters;
 using GameEquipment;
+using Ranks;
 using TextTimeDelay;
 
 namespace GameStructure
@@ -34,7 +35,7 @@ namespace GameStructure
                 }
                 else if((int)selectedCategory >= 1 && (int)selectedCategory <= 4)
                 {
-                    // Here goes helper method to handle the player choosen category 
+                    Shopping.ShopCategoryHandler(player, selectedCategory); 
                 }
                 else if((int)selectedCategory == 5)
                 {
@@ -141,6 +142,123 @@ namespace GameStructure
     }
     internal class Shopping
     {
+        internal static void ShopCategoryHandler(Player player, ItemCategory selected)
+        {
+            switch(selected)
+            {
+                case ItemCategory.Sword:
+                    BuyEquipmentProcess(player, ItemCategory.Sword);
+                    break;
+                
+                case ItemCategory.Shield:
+                    BuyEquipmentProcess(player, ItemCategory.Shield);
+                    break;
 
+                case ItemCategory.Armor:
+                    BuyEquipmentProcess(player, ItemCategory.Armor);
+                    break;
+                
+                case ItemCategory.Healing:
+                    // Here goes the method to buy healing.
+                    break;
+                
+                case ItemCategory.Exit:
+                    break;
+            }
+        }
+        private static void BuyEquipmentProcess(Player player, ItemCategory selectedEquipment)
+        {
+            Console.Clear();
+
+            Rank currentRank = player.WarriorRank;
+            bool sameID;
+            // Next var is hasn't been implemented yet. 
+            bool result;
+
+            switch(selectedEquipment)
+            {
+                case ItemCategory.Sword:
+                    Sword availableSword = new Sword(currentRank);
+                    sameID = ShopItem.CheckItemID(player.EquipedSword!.ID, availableSword.ID, availableSword.Name);
+                    if(!sameID)
+                    {
+                        ShopItem.DisplayItemInformation(player, availableSword);
+                        Console.ReadKey(); // Remove after test. 
+                    }
+                    break;
+                
+                case ItemCategory.Shield:
+                    Shield availableShield = new Shield(currentRank);
+                    sameID = ShopItem.CheckItemID(player.EquipedShield!.ID, availableShield.ID, availableShield.Name);
+                    break;
+                
+                case ItemCategory.Armor:
+                    Armor availableArmor = new Armor(currentRank);
+                    sameID = ShopItem.CheckItemID(player.EquipedArmor!.ID, availableArmor.ID, availableArmor.Name);
+                    break;
+            }
+        }
+    }
+    internal class ShopItem
+    {
+        internal static void DisplayItemInformation(Player player, object selectedEquipment)
+        {
+            switch(selectedEquipment)
+            {
+                case Sword currentRankSword:
+                    SwordInfo(player, (Sword)selectedEquipment);
+                    break;
+                
+                case Shield currentRankShield:
+                    ShieldInfo(player, (Shield)selectedEquipment);
+                    break;
+
+                case Armor currentRankArmor:
+                    ArmorInfo(player, (Armor)selectedEquipment);
+                    break;
+            }
+        }
+        internal static bool CheckItemID(string equipedID, string shopItemID, string shopItemName)
+        {
+            if(equipedID == shopItemID)
+            {
+                Console.WriteLine($"\nYou already bought and equiped the {shopItemName}\n");
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        private static void SwordInfo(Player player, Sword sword)
+        {
+            Console.WriteLine($"With your current '{player.WarriorRank}' Rank you are able to buy this weapon:\n");
+            Console.WriteLine($"\t\t\t{sword.Name}\n");
+            Console.WriteLine($"\"{sword.Info}\"");
+            Console.WriteLine($"\nDamage: {sword.SwordDmg}");
+            Console.WriteLine($"Weight: {sword.Weight} kgs");
+            Console.WriteLine($"Price: {sword.Price} gold");
+            Console.WriteLine($"\nWARNING: you will lose the {player.EquipedSword?.Name}");
+        }
+        private static void ShieldInfo(Player player, Shield shield)
+        {
+            Console.WriteLine($"With your current '{player.WarriorRank}' Rank you are able to buy this weapon:\n");
+            Console.WriteLine($"\t\t\t{shield.Name}\n");
+            Console.WriteLine($"\"{shield.Info}\"");
+            Console.WriteLine($"\nDamage: {shield.ShieldDef}");
+            Console.WriteLine($"Weight: {shield.Weight} kgs");
+            Console.WriteLine($"Price: {shield.Price} gold");
+            Console.WriteLine($"\nWARNING: you will lose the {player.EquipedShield?.Name}");
+        }
+        private static void ArmorInfo(Player player, Armor armor)
+        {
+            Console.WriteLine($"With your current '{player.WarriorRank}' Rank you are able to buy this weapon:\n");
+            Console.WriteLine($"\t\t\t{armor.Name}\n");
+            Console.WriteLine($"\"{armor.Info}\"");
+            Console.WriteLine($"\nDamage: {armor.ArmorDef}");
+            Console.WriteLine($"Weight: {armor.Weight} kgs");
+            Console.WriteLine($"Price: {armor.Price} gold");
+            Console.WriteLine($"\nWARNING: you will lose the {player.EquipedArmor?.Name}");
+        }
     }
 }
