@@ -15,6 +15,7 @@ namespace GameCharacters
         public int HP { get; internal set; } = 100;
         public int AttackValue { get; private set; } = DefaultAttackValue;
         public int DefenseValue { get; private set; } = DefaultDefenseValue;
+        public int PlayerFunds {get; internal set; } = 100;
 
         public Sword? EquipedSword { get; internal set; } = null;
         public Shield? EquipedShield { get; internal set; } = null;

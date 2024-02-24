@@ -20,7 +20,7 @@ namespace GameStructure
         internal static void EnterShop(Player player)
         {
             bool keepShopping = true;
-
+            
             do
             {
                 Console.Clear();
@@ -147,15 +147,15 @@ namespace GameStructure
             switch(selected)
             {
                 case ItemCategory.Sword:
-                    BuyEquipmentProcess(player, ItemCategory.Sword);
+                    BuyEquipment(player, ItemCategory.Sword);
                     break;
                 
                 case ItemCategory.Shield:
-                    BuyEquipmentProcess(player, ItemCategory.Shield);
+                    BuyEquipment(player, ItemCategory.Shield);
                     break;
 
                 case ItemCategory.Armor:
-                    BuyEquipmentProcess(player, ItemCategory.Armor);
+                    BuyEquipment(player, ItemCategory.Armor);
                     break;
                 
                 case ItemCategory.Healing:
@@ -166,40 +166,109 @@ namespace GameStructure
                     break;
             }
         }
-        private static void BuyEquipmentProcess(Player player, ItemCategory selectedEquipment)
+        private static void BuyEquipment(Player player, ItemCategory selectedEquipment)
         {
             Console.Clear();
-
-            Rank currentRank = player.WarriorRank;
+    
             bool sameID;
-            // Next var is hasn't been implemented yet. 
-            bool result;
+            bool buyChoice;
 
             switch(selectedEquipment)
             {
                 case ItemCategory.Sword:
-                    Sword availableSword = new Sword(currentRank);
-                    sameID = ShopItem.CheckItemID(player.EquipedSword!.ID, availableSword.ID, availableSword.Name);
+                    Sword currentRankSword = new Sword(player.WarriorRank);
+                    sameID = ShopItems.CheckEquipmentID(player.EquipedSword!.ID, currentRankSword.ID, currentRankSword.Name);
                     if(!sameID)
                     {
-                        ShopItem.DisplayItemInformation(player, availableSword);
-                        Console.ReadKey(); // Remove after test. 
+                        buyChoice = ConfirmBuy(player, currentRankSword, currentRankSword.Price);
+                        if(buyChoice == true)
+                        {
+                            // here goes the code to equip the sword and subtract the cost from the player funds.
+                        }
                     }
                     break;
                 
                 case ItemCategory.Shield:
-                    Shield availableShield = new Shield(currentRank);
-                    sameID = ShopItem.CheckItemID(player.EquipedShield!.ID, availableShield.ID, availableShield.Name);
+                    Shield currentRankShield = new Shield(player.WarriorRank);
+                    sameID = ShopItems.CheckEquipmentID(player.EquipedShield!.ID, currentRankShield.ID, currentRankShield.Name);
+                    if(!sameID)
+                    {
+                        buyChoice = ConfirmBuy(player, currentRankShield, currentRankShield.Price);
+                        if(buyChoice == true)
+                        {
+                            // here goes the code to equip the shield and subtract the cost from the player funds.
+                        }
+                    }
                     break;
                 
                 case ItemCategory.Armor:
-                    Armor availableArmor = new Armor(currentRank);
-                    sameID = ShopItem.CheckItemID(player.EquipedArmor!.ID, availableArmor.ID, availableArmor.Name);
+                    Armor currentRankArmor = new Armor(player.WarriorRank);
+                    sameID = ShopItems.CheckEquipmentID(player.EquipedArmor!.ID, currentRankArmor.ID, currentRankArmor.Name);
+                    if(!sameID)
+                    {
+                        buyChoice = ConfirmBuy(player, currentRankArmor, currentRankArmor.Price);
+                        if(buyChoice == true)
+                        {
+                            // here goes the code to equip the armor and subtract the cost from the player funds.
+                        }
+                    }
                     break;
             }
         }
+        private static bool ConfirmBuy(Player player, object selectedEquipment, int selectedEquipmentCost)
+        {
+            string? readInput = string.Empty;
+
+            do
+            {
+                Console.Clear();
+
+                ShopItems.DisplayItemInformation(player, selectedEquipment);
+
+                Console.WriteLine($"\nDo you wish to buy it?\t\tYou have: {player.PlayerFunds} gold");
+                Console.Write("Y/N: ");
+                readInput = Console.ReadLine()?.ToUpper().Trim();
+                if(readInput == null)
+                {
+                    Console.WriteLine("\nERROR: An unexpected error occurred while reading input. Please try again.");
+                    Thread.Sleep((int)Delay.Medium);
+                    continue;
+                }
+
+                if(string.IsNullOrEmpty(readInput))
+                {
+                    Console.WriteLine("\nNOTE: Input cannot be void or empty, please try again\n");
+                    Thread.Sleep((int)Delay.Medium);
+                    continue;
+                }
+                else if((readInput == "Y" || readInput == "YES") || (readInput == "N" || readInput == "NO"))
+                {
+                    break;
+                }
+                else
+                {
+                    Console.WriteLine("\nNOTE: Input not valid, must be Y or N only, please try again\n");
+                    Thread.Sleep((int)Delay.Medium);
+                    continue;
+                }
+            }while(true);
+
+            if((readInput == "Y" || readInput == "YES") && player.PlayerFunds >= selectedEquipmentCost)
+            {
+                return true;
+            }
+            else if((readInput == "Y" || readInput == "YES") && player.PlayerFunds < selectedEquipmentCost)
+            {
+                Console.WriteLine("\nSorry you don't have enough gold\n");
+                return false;
+            }
+            else
+            {
+                return false;
+            }
+        }
     }
-    internal class ShopItem
+    internal class ShopItems
     {
         internal static void DisplayItemInformation(Player player, object selectedEquipment)
         {
@@ -218,7 +287,7 @@ namespace GameStructure
                     break;
             }
         }
-        internal static bool CheckItemID(string equipedID, string shopItemID, string shopItemName)
+        internal static bool CheckEquipmentID(string equipedID, string shopItemID, string shopItemName)
         {
             if(equipedID == shopItemID)
             {
@@ -245,7 +314,7 @@ namespace GameStructure
             Console.WriteLine($"With your current '{player.WarriorRank}' Rank you are able to buy this weapon:\n");
             Console.WriteLine($"\t\t\t{shield.Name}\n");
             Console.WriteLine($"\"{shield.Info}\"");
-            Console.WriteLine($"\nDamage: {shield.ShieldDef}");
+            Console.WriteLine($"\nDefense: {shield.ShieldDef}");
             Console.WriteLine($"Weight: {shield.Weight} kgs");
             Console.WriteLine($"Price: {shield.Price} gold");
             Console.WriteLine($"\nWARNING: you will lose the {player.EquipedShield?.Name}");
@@ -255,10 +324,14 @@ namespace GameStructure
             Console.WriteLine($"With your current '{player.WarriorRank}' Rank you are able to buy this weapon:\n");
             Console.WriteLine($"\t\t\t{armor.Name}\n");
             Console.WriteLine($"\"{armor.Info}\"");
-            Console.WriteLine($"\nDamage: {armor.ArmorDef}");
+            Console.WriteLine($"\nDefense: {armor.ArmorDef}");
             Console.WriteLine($"Weight: {armor.Weight} kgs");
             Console.WriteLine($"Price: {armor.Price} gold");
             Console.WriteLine($"\nWARNING: you will lose the {player.EquipedArmor?.Name}");
+        }
+        private static void HealingPotionsInfo()
+        {
+            // Here goes the code to display potion healing description.
         }
     }
 }
